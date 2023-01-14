@@ -7,21 +7,40 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  
+  <body>
+
+    <div class="instructions">
+      <h3>Instructions :</h3>
+      <ul>
+        <li>User input should be less or equal 10 size</li>
+        <li>please enter number space seperated</li>
+      </ul>
+    </div>
+
+    <input type="text" id="inputtext" placeholder="1 2 3 4 5 ......10" />
+    <button type="button" id="display">Submit</button>
+    <span id="error"></span>
+
+    <h4>Input</h4>
     <div id="userinput" placeholder="please enter number"></div>
 
-    <table>
-      <tbody id="tbody"></tbody>
+    <table >
+      <tbody id="tbody" ></tbody>
     </table>
-    <!-- <div id="output"></div> -->
+
     <!-- table two start -->
+
+    <h4>Output</h4>
+    <div><div id="output"></div></div>
     
-  </br>
     <table>
       <tbody id="tbody1"></tbody>
     </table>
 
-
     <script src="./script.js"></script>
   </body>
 </html>
+
+
+
+
