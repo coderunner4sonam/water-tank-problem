@@ -7,12 +7,9 @@ let Input = document.querySelector("#inputtext");
 const err = document.getElementById("error");
 
 console.log(displayButton);
-// console.log(tbody)
-// console.log(tbody1)
-
 
 let InputArray = new Array();
-// main(10);
+
 displayButton.addEventListener("click", displayAll);
 
 function displayAll() {
@@ -27,21 +24,19 @@ function displayAll() {
   userinput.innerHTML = InputArray;
   InputArray = InputArray[0].split(" ");
   console.log(InputArray);
-  let size=InputArray.length
-  
+  let size = InputArray.length;
 
   let flag = false;
   if (InputArray.length > 10) {
     flag = true;
-    err.innerHTML = "Problem array length should be less or equal than size.";
+    err.innerHTML = "Problem array length should be less or equal than 10.";
     Input.value = "";
     return;
   }
   main(size);
-
-
 }
 
+// Main function is use to create table
 function main(size) {
   let left = [];
 
@@ -50,7 +45,6 @@ function main(size) {
   for (let i = 1; i < size; i++) {
     left.push(Math.max(left[i - 1], InputArray[i]));
   }
-
 
   let right = new Array(size).fill(0);
   right[size - 1] = InputArray[size - 1];
@@ -71,7 +65,9 @@ function main(size) {
 
   let unit = add > 1 ? "Units" : "Unit";
 
-  op.innerHTML = `${add} ${unit}`;
+  op.innerHTML = `${add} ${unit}`; // use to show number of units
+
+  // 72-87 line code is use to show wall
 
   for (let i = 0; i < size; i++) {
     let tr = document.createElement("tr");
@@ -79,18 +75,18 @@ function main(size) {
       let td = document.createElement("td");
 
       tr.append(td);
-      let value = size - InputArray[j]; //9-2
+      let value = size - InputArray[j];
 
       if (i >= value) {
         td.classList.add("tank");
       }
-      // 2, 8, 0, 6, 0, 9, 4, 5, 2, 7
-      // 0  1  2  3  4  5   6  7  8  9
-      //  td.classList.add(i + "-" + j) // for check
+
       td.id = "t1" + i + "-" + j;
       tbody.append(tr);
     }
   }
+
+  // 89-100 line code is to show how much water contain
 
   for (let j = 0; j < size; j++) {
     if (watercontainer[j] <= 0) {
@@ -107,7 +103,7 @@ function main(size) {
   }
 
   // *********************output table******************************
-  // console.log(tbody1);
+  // below code is only to show the water contain
 
   for (let i = 0; i < size; i++) {
     let tr = document.createElement("tr");
